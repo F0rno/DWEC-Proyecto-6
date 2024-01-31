@@ -7,37 +7,53 @@ import Login from "../views/Login.vue"
 import SingUp from "../views/SingUp.vue"
 import Info from "../views/Info.vue"
 import Profile from "../views/Profile.vue"
+import LayoutPrivate from "../layout/LayoutPrivate.vue"
+import LayoutRoot from "../layout/LayoutRoot.vue"
 
 const routes = [
     {
         path: "/",
-        name: "Intro",
-        component: Intro,
-    },
-    {
-        path: "/login",
-        name: "Login",
-        component: Login,
-    },
-    {
-        path: "/singup",
-        name: "SingUp",
-        component: SingUp,
-    },
-    {
-        path: "/home",
-        name: "Home",
-        component: Home,
-    },
-    {
-        path: "/info:id",
-        name: "Info",
-        component: Info,
-    },
-    {
-        path: "/profile",
-        name: "Profile",
-        component: Profile,
+        name: "LayoutRoot",
+        component: LayoutRoot,
+        children: [
+            {
+                path: "",
+                name: "Intro",
+                component: Intro,
+            },
+            {
+                path: "/login",
+                name: "Login",
+                component: Login,
+            },
+            {
+                path: "/singup",
+                name: "SingUp",
+                component: SingUp,
+            },
+            {
+                path: "/private",
+                name: "LayoutPrivate",
+                component: LayoutPrivate,
+                children: [
+                    {
+                        path: "",
+                        name: "Home",
+                        component: Home,
+                    },
+                    {
+                        path: "info:id",
+                        name: "Info",
+                        component: Info,
+                    },
+                    {
+                        path: "profile",
+                        name: "Profile",
+                        component: Profile,
+                    },
+                ]
+            },
+        ]
     },
     {
         path: "/:catchAll(.*)",
