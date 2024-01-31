@@ -32,7 +32,7 @@ const routes = [
                 component: SingUp,
             },
             {
-                path: "/private",
+                path: "/home",
                 name: "LayoutPrivate",
                 component: LayoutPrivate,
                 children: [

@@ -1,7 +1,6 @@
 <script>
-import router from '../router/index.js';
 export default {
-    
+
 }
 </script>
 <template lang="">
