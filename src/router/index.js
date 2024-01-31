@@ -9,6 +9,7 @@ import Info from "../views/Info.vue"
 import Profile from "../views/Profile.vue"
 import LayoutPrivate from "../layout/LayoutPrivate.vue"
 import LayoutRoot from "../layout/LayoutRoot.vue"
+import LayoutPresentation from "../layout/LayoutPresentation.vue"
 
 const routes = [
     {
@@ -18,18 +19,25 @@ const routes = [
         children: [
             {
                 path: "",
-                name: "Intro",
-                component: Intro,
-            },
-            {
-                path: "/login",
-                name: "Login",
-                component: Login,
-            },
-            {
-                path: "/singup",
-                name: "SingUp",
-                component: SingUp,
+                name: "Presentation",
+                component: LayoutPresentation,
+                children: [
+                    {
+                        path: "",
+                        name: "Intro",
+                        component: Intro,
+                    },
+                    {
+                        path: "/login",
+                        name: "Login",
+                        component: Login,
+                    },
+                    {
+                        path: "/singup",
+                        name: "SingUp",
+                        component: SingUp,
+                    }
+                ]
             },
             {
                 path: "/home",
