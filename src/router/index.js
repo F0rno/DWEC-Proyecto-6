@@ -10,6 +10,7 @@ import Profile from "../views/Profile.vue"
 import LayoutPrivate from "../layout/LayoutPrivate.vue"
 import LayoutRoot from "../layout/LayoutRoot.vue"
 import LayoutPresentation from "../layout/LayoutPresentation.vue"
+import Teams from "../views/Teams.vue"
 
 const routes = [
     {
@@ -53,6 +54,11 @@ const routes = [
                         path: "info:id",
                         name: "Info",
                         component: Info,
+                    },
+                    {
+                        path: "teams",
+                        name: "Teams",
+                        component: Teams,
                     },
                     {
                         path: "profile",
