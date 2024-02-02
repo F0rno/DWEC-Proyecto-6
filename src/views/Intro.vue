@@ -44,7 +44,7 @@ export default {
         </main>
     </div>
 </template>
-<style lang="css">
+<style lang="css" scoped>
     .wrapper {
         min-height: 100vh;
         background-color: var(--darker-green);

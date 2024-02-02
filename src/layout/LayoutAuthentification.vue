@@ -1,16 +1,37 @@
 <script>
-import Header from './../components/presentation/Header.vue'
 export default {
-    components: {
-        Header
-    }
 }
 </script>
 <template lang="">
-    <Header />
-    <router-view></router-view>
-    
+    <div class="wrapper">
+        <header class="auth__header">
+            <img src="./../assets/Booky.png" alt="">
+        </header>
+        <router-view></router-view>
+        <footer class="auth__footer">
+
+        </footer>
+    </div>
 </template>
 <style lang="css">
-    
+    .wrapper {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 146px auto 32px;
+        background-color: var(--darker-green);
+    }
+
+    .auth__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--light-green);
+        & img {
+            max-height: 70%;
+        }
+    }
+
+    .auth__footer {
+        background-color: var(--light-green);
+    }
 </style>

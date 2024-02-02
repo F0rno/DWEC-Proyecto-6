@@ -24,7 +24,7 @@ const routes = [
                 component: Intro,
             },
             {
-                path: "/auth",
+                path: "",
                 name: "Authentification",
                 component: LayoutAuthentification,
                 children: [
