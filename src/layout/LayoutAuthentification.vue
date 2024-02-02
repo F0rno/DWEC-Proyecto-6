@@ -13,7 +13,7 @@ export default {
         </footer>
     </div>
 </template>
-<style lang="css">
+<style lang="css" scoped>
     .wrapper {
         min-height: 100vh;
         display: grid;
