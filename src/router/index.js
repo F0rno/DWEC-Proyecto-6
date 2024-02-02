@@ -9,7 +9,7 @@ import Info from "../views/Info.vue"
 import Profile from "../views/Profile.vue"
 import LayoutPrivate from "../layout/LayoutPrivate.vue"
 import LayoutRoot from "../layout/LayoutRoot.vue"
-import LayoutPresentation from "../layout/LayoutPresentation.vue"
+import LayoutAuthentification from "../layout/LayoutAuthentification.vue"
 import Teams from "../views/Teams.vue"
 
 const routes = [
@@ -20,14 +20,14 @@ const routes = [
         children: [
             {
                 path: "",
-                name: "Presentation",
-                component: LayoutPresentation,
+                name: "Intro",
+                component: Intro,
+            },
+            {
+                path: "/auth",
+                name: "Authentification",
+                component: LayoutAuthentification,
                 children: [
-                    {
-                        path: "",
-                        name: "Intro",
-                        component: Intro,
-                    },
                     {
                         path: "/login",
                         name: "Login",
