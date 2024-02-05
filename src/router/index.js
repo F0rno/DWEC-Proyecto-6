@@ -12,6 +12,8 @@ import LayoutRoot from "../layout/LayoutRoot.vue"
 import LayoutAuthentification from "../layout/LayoutAuthentification.vue"
 import Teams from "../views/Teams.vue"
 
+// TODO Lazy loading
+
 const routes = [
     {
         path: "/",
@@ -51,7 +53,7 @@ const routes = [
                         component: Home,
                     },
                     {
-                        path: "info:id",
+                        path: "info/:id",
                         name: "Info",
                         component: Info,
                     },

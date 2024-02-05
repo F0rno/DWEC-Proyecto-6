@@ -1,12 +1,14 @@
 <script>
-import SearchBar from '../components/private/Searchs/SearchBar.vue';
+import SearchBar from '../components/private/searchs/SearchBar.vue';
+import Feed from '../components/private/media/Feed.vue';
 
 export default {
     components: {
-        SearchBar
+        SearchBar,
+        Feed
     },
     methods: {
-        onSubmit(input, type, sortedBy) {
+        callAPI(input, type, sortedBy) {
             console.log(input, type, sortedBy)
         }
     }
@@ -14,7 +16,12 @@ export default {
 </script>
 <template lang="">
     <div class="wrapper">
-        <SearchBar :onSubmit="onSubmit" />
+        <section>
+            <SearchBar :onSubmit="callAPI" />
+        </section>
+        <section>
+            <Feed />
+        </section>
     </div>
 </template>
 <style lang="" scoped>

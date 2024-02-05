@@ -40,25 +40,23 @@ export default {
 }
 </script>
 <template>
-    <section>
-        <article>
-            <input
-                type="text"
-                v-model="input"
-                @input="onChange"
-            >
-            <section>
-                <select name="type" v-model="type" @input="onChange">
-                    <option value="book">Book</option>
-                    <option value="magazine">Magazine</option>
-                </select>
-                <select name="sortedby" v-model="sortedBy" @input="onChange">
-                    <option value="new">New</option>
-                    <option value="relevant">Relevant</option>
-                </select>
-            </section>
-        </article>
-    </section>
+    <article>
+        <input
+            type="text"
+            v-model="input"
+            @input="onChange"
+        >
+        <section>
+            <select name="type" v-model="type" @input="onChange">
+                <option value="book">Book</option>
+                <option value="magazine">Magazine</option>
+            </select>
+            <select name="sortedby" v-model="sortedBy" @input="onChange">
+                <option value="new">New</option>
+                <option value="relevant">Relevant</option>
+            </select>
+        </section>
+    </article>
 </template>
 <style lang="" scoped>
     
