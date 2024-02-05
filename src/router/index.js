@@ -1,72 +1,63 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import Home from "../views/Home.vue";
-import NotFound from "../views/NotFound.vue";
-import Intro from "../views/Intro.vue"
-import Login from "../views/Login.vue"
-import SingUp from "../views/SingUp.vue"
-import Info from "../views/Info.vue"
-import Profile from "../views/Profile.vue"
-import LayoutPrivate from "../layout/LayoutPrivate.vue"
-import LayoutRoot from "../layout/LayoutRoot.vue"
-import LayoutAuthentification from "../layout/LayoutAuthentification.vue"
-import Teams from "../views/Teams.vue"
-
-// TODO Lazy loading
-
 const routes = [
     {
         path: "/",
         name: "LayoutRoot",
-        component: LayoutRoot,
+        component: () => import("../layout/LayoutRoot.vue"),
         children: [
             {
                 path: "",
                 name: "Intro",
-                component: Intro,
+                component: () => import("../views/Intro.vue"),
             },
             {
                 path: "",
                 name: "Authentification",
-                component: LayoutAuthentification,
+                component: () => import("../layout/LayoutAuthentification.vue"),
                 children: [
                     {
                         path: "/login",
                         name: "Login",
-                        component: Login,
+                        component: () => import("../views/Login.vue"),
                     },
                     {
                         path: "/singup",
                         name: "SingUp",
-                        component: SingUp,
+                        component: () => import("../views/SingUp.vue"),
                     }
                 ]
             },
             {
                 path: "/home",
                 name: "LayoutPrivate",
-                component: LayoutPrivate,
+                component: () => import("../layout/LayoutPrivate.vue"),
                 children: [
                     {
                         path: "",
                         name: "Home",
-                        component: Home,
+                        component: () => import("../views/Home.vue"),
                     },
                     {
                         path: "info/:id",
                         name: "Info",
-                        component: Info,
+                        component: () => import("../views/Info.vue"),
                     },
                     {
                         path: "teams",
                         name: "Teams",
-                        component: Teams,
+                        component: () => import("../views/Teams.vue"),
                     },
                     {
                         path: "profile",
                         name: "Profile",
-                        component: Profile,
+                        component: () => import("../views/Profile.vue"),
                     },
+                    {
+                        path: "contact",
+                        name: "Contact",
+                        component: () => import("../views/Contact.vue"),
+                    }
                 ]
             },
         ]
@@ -74,7 +65,7 @@ const routes = [
     {
         path: "/:catchAll(.*)",
         name: "NotFound",
-        component: NotFound,
+        component: () => import("../views/NotFound.vue"),
     }
 ]
 
