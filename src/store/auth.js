@@ -4,5 +4,11 @@ import { reactive } from 'vue';
 
 export const auth = reactive({
     user: "",
-    loggedin: true
+    loggedin: true,
+    login() {
+        this.loggedin = true;
+    },
+    logout() {
+        this.loggedin = false;
+    }
 })
