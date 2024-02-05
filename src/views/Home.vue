@@ -15,14 +15,14 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="wrapper">
-        <section>
+    <section class="home-container">
+        <article>
             <SearchBar :onSubmit="callAPI" />
-        </section>
-        <section>
+        </article>
+        <article>
             <Feed />
-        </section>
-    </div>
+        </article>
+    </section>
 </template>
 <style lang="" scoped>
     
