@@ -1,13 +1,15 @@
 <template lang="">
-    <div>
+    <section class="login-container">
         Login
-    </div>
+    </section>
 </template>
 <script>
 export default {
     
 }
 </script>
-<style lang="">
-    
+<style lang="css" scoped>
+    .login-container {
+        background-color: var(--darker-green);
+    }
 </style>

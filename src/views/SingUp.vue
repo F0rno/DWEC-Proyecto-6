@@ -1,13 +1,15 @@
 <template lang="">
-    <div>
-        SingUp
-    </div>
+    <section class="singup-container">
+        Singup
+    </section>
 </template>
 <script>
 export default {
     
 }
 </script>
-<style lang="">
-    
+<style lang="css" scoped>
+    .singup-container {
+        background-color: var(--darker-green);
+    }
 </style>

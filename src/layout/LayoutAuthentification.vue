@@ -23,7 +23,6 @@ export default {
         min-height: 100vh;
         display: grid;
         grid-template-rows: 146px auto 32px;
-        background-color: var(--darker-green);
     }
 
     .auth__header {
