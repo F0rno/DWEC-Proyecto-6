@@ -4,7 +4,7 @@ import { auth } from '../../../store/auth';
 export default {
     data() {
         return {
-            showMenu: true
+            showMenu: false
         }
     },
     computed: {

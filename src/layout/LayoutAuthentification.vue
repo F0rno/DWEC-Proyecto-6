@@ -10,18 +10,16 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="wrapper">
-        <header class="auth__header">
-            <img src="./../assets/Booky.png" alt="">
-        </header>
-        <router-view></router-view>
-        <footer class="auth__footer">
+    <header class="auth__header">
+        <img src="./../assets/Booky.png" alt="">
+    </header>
+    <router-view></router-view>
+    <footer class="auth__footer">
 
-        </footer>
-    </div>
+    </footer>
 </template>
-<style lang="css" scoped>
-    .wrapper {
+<style lang="css">
+    #app {
         min-height: 100vh;
         display: grid;
         grid-template-rows: 146px auto 32px;

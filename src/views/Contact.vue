@@ -3,10 +3,10 @@ export default {
 }
 </script>
 <template lang="">
-    <div>
+    <section>
         
-    </div>
+    </section>
 </template>
-<style lang="">
+<style lang="css" scoped>
     
 </style>

@@ -17,15 +17,14 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="wrapper">
-        <Header />
-        <router-view></router-view>
-        <Footer />
-    </div>
+    <Header />
+    <router-view></router-view>
+    <Footer />
 </template>
-<style lang="css" scoped>
-    .wrapper {
+<style lang="css">
+    #app {
         display: grid;
+        min-height: 100vh;
         grid-template-rows: auto 1fr auto;
         min-height: 100vh;
     }
