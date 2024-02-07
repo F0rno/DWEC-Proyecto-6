@@ -10,13 +10,7 @@ export default {
 </template>
 <style lang="css" scoped>
     footer {
-        height: 16px;
+        height: 3vh;
         background-color: var(--darker-green);
-    }
-
-    @media (768px <= width) {
-        footer {
-            height: 32px;
-        }
     }
 </style>

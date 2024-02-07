@@ -88,26 +88,26 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 16px;
-        padding-right: 16px;
-        height: 86px;
+        padding-left: 4vh;
+        padding-right: 3vh;
+        height: 12vh;
         background-color: var(--darker-green);
     }
 
     .private-header__logo {
-        width: 150px;
+        width: 20vh;
     }
 
     .private-header__navbar {
         position: relative;
-        margin-right: 32px
+        margin-right: 5vh;
     }
 
     .private-header__navbar__user {
         color: var(--light-green);
         font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 300;
-        font-size: 28px;
+        font-size: 4.5vh;
         cursor: pointer;
         width: 100%;
     }
@@ -130,54 +130,32 @@ export default {
         align-items: center;
         width: 100%;
         text-align: center;
-        padding-top: 8px;
+        font-size: 2.5vh;
 
         & svg {
-            width: 24px;
-            height: 24px;
+            width: 3vh;
             fill: var(--light-green);
             margin-right: 8px;
         }
     }
 
-    .private-header__navbar__menu:last-child {
-        padding-bottom: 8px;
-    }
-
     @media (768px <= width) {
         .private-header {
-            padding-left: 64px;
-            padding-right: 64px;
-            height: 110px;
+            padding-left: 8vh;
+            padding-right: 8vh;
         }
-
-        .private-header__logo {
-            width: 175px;
+        .private-header__navbar__menu li {
+            padding: 1.5vh;
+            font-size: 2.25vh;
         }
-
-        .private-header__navbar__user {
-            font-size: 40px;
-        }
-
         .private-header__navbar__menu:last-child {
             padding-bottom: 16px;
         }
-
-        .private-header__navbar__menu li {
-            padding-top: 16px;
-            font-size: 24px;
-
-            & svg {
-                width: 32px;
-                height: 32px;
-            }
-        }
     }
     @media (1200px <= width) {
-        .private-header {
-            padding-left: 128px;
-            padding-right: 128px;
+        .private-header__navbar__menu li {
+            padding: 0.5vh;
+            font-size: 3vh;
         }
-    
     }
 </style>

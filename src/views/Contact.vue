@@ -41,7 +41,7 @@ export default {
             font-size: 5vh;
         }
         border-radius: 5px;
-        padding: 16px;
+        padding: 2vh;
     }
 
     form {
@@ -60,7 +60,7 @@ export default {
         & input {
             border-radius: 2px;
             border: none;
-            padding: 0.5rem;
+            padding: 1vh;
         }
         
         & input[type="text"], input[type="email"], textarea {
@@ -91,7 +91,7 @@ export default {
 
         form {
             & label {
-                font-size: 2rem;
+                font-size: 2vh;
             }
 
             & input[type="text"], input[type="email"], textarea {
