@@ -34,7 +34,15 @@ export default {
             } else {
                 this.input = event.target.value
             }
-            this.onSubmit(this.input, this.type, this.sortedBy)
+
+            this.input = this.input === undefined ? '' : this.input
+         
+            const search = {
+                title: this.input,
+                type: this.type === 'book' ? 'B' : 'M',
+                sort: this.sortedBy === 'new' ? 'N' : 'R'
+            }
+            this.onSubmit(search)
         }
     }
 }

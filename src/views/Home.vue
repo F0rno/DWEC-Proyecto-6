@@ -1,29 +1,58 @@
 <script>
 import SearchBar from '../components/private/searchs/SearchBar.vue';
 import Feed from '../components/private/media/Feed.vue';
+import { auth } from '../store/auth';
 
 export default {
     components: {
         SearchBar,
         Feed
     },
-    methods: {
-        callAPI(input, type, sortedBy) {
-            console.log(input, type, sortedBy)
+    data() {
+        return {
+            books: []
         }
+    },
+    methods: {
+        askAPIForBooks(search) {
+            const title = search ? search.title : '';
+            const type = search ? search.type : 'B';
+            const sort = search ? search.sort : 'N';
+            const url = `${import.meta.env.VITE_API_URL}/books/search?title=${title}&type=${type}&sort=${sort}`;
+            fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${auth.token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.books = data.data;
+            })
+            .catch(error => console.error(error));
+        }    
+    },
+    created() {
+        this.askAPIForBooks();
     }
 }
 </script>
 <template lang="">
-    <section class="home-container">
+    <section class="home">
         <article>
-            <SearchBar :onSubmit="callAPI" />
+            <SearchBar :onSubmit="askAPIForBooks" />
         </article>
-        <article>
-            <Feed />
+        <article class="home__feed-container">
+            <Feed :books="books" />
         </article>
     </section>
 </template>
-<style lang="" scoped>
+<style lang="css" scoped>
+    .home {
+        background-color: var(--light-green);
+    }
     
+    .home__feed-container {
+        display: flex;
+        justify-content: center;
+    }
 </style>
