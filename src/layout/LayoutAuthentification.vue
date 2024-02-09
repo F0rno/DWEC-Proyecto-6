@@ -14,9 +14,7 @@ export default {
         <img src="./../assets/Booky.png" alt="">
     </header>
     <router-view></router-view>
-    <footer class="auth__footer">
-
-    </footer>
+    <footer class="auth__footer"/>
 </template>
 <style lang="css">
     #app {
