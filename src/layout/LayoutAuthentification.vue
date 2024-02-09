@@ -22,7 +22,7 @@ export default {
     #app {
         min-height: 100vh;
         display: grid;
-        grid-template-rows: 146px auto 32px;
+        grid-template-rows: 16vh auto 2.5vh;
     }
 
     .auth__header {
@@ -31,7 +31,7 @@ export default {
         align-items: center;
         background-color: var(--light-green);
         & img {
-            max-height: 70%;
+            height: 70%;
         }
     }
 
