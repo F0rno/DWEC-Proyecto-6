@@ -35,5 +35,6 @@ export default {
 
     .auth__footer {
         background-color: var(--light-green);
+        height: 2.5vh;
     }
 </style>

@@ -9,10 +9,7 @@ export default {
     },
     computed: {
         auth() {
-            if (auth.user === '') {
-                return 'User';
-            }
-            return auth;
+            return auth.user;
         }
     },
     methods: {

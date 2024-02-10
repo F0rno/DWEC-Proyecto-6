@@ -38,7 +38,6 @@ export default {
             if (!this.validForm()) {
                 return
             }
-            this.fail = false;
             this.send = true;
             const url = `${import.meta.env.VITE_API_URL}/login`
             const data = {
@@ -59,6 +58,8 @@ export default {
                     this.fail = false;
                     response.json().then(data => {
                         auth.token = data.access_token
+                        auth.user = data.username
+                        auth.login()
                         this.$router.push({ name: 'Home'})
                     })
                 } else {
