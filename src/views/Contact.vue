@@ -1,18 +1,20 @@
 <script>
+import { sleep } from '../utils.js';
+
 export default {
     data() {
         return {
-            validName: true,
-            validEmail: true,
-            validSubject: true,
-            validMessage: true,
-            firstLoad: true,
+            validName: undefined,
+            validEmail: undefined,
+            validSubject: undefined,
+            validMessage: undefined,
+            sending: false,
             send: false
         }
     },
     methods: {
         onChange(event) {
-            this.firstLoad = false;
+            this.sending = false;
             this.send = false;
 
             // REGEX for name, email, subject, message
@@ -33,12 +35,12 @@ export default {
             }
         },
         validForm() {
-            if (this.firstLoad) {
-                return false;
-            }
             return this.validName && this.validEmail && this.validSubject && this.validMessage;
         },
-        onSubmit() {
+        async onSubmit() {
+            this.sending = true;
+            await sleep(1000);
+            this.sending = false;
             if (this.validForm()) {
                 console.log('Form sent');
                 this.send = true;
@@ -53,24 +55,34 @@ export default {
             <h2>Contact</h2>
             <form action="mailto:admin@admin.com" @submit.prevent="onSubmit">
                 <label for="name">Name</label>
-                <p v-if="!validName && !firstLoad">Name is not valid</p>
+                <p v-if="!validName && validName !== undefined">Name is not valid</p>
                 <input type="text" id="name" name="name" required @input="onChange">
 
                 <label for="email">Email</label>
-                <p v-if="!validEmail && !firstLoad">Email is not valid</p>
+                <p v-if="!validEmail && validEmail !== undefined">Email is not valid</p>
                 <input type="email" id="email" name="email" required @input="onChange">
 
                 <label for="subject">Subject</label>
-                <p v-if="!validSubject && !firstLoad">Subject is not valid</p>
+                <p v-if="!validSubject && validSubject !== undefined">Subject is not valid</p>
                 <input type="text" id="subject" name="subject" required @input="onChange">
 
                 <label for="message">Message</label>
-                <p v-if="!validMessage && !firstLoad">Message is not valid</p>
+                <p v-if="!validMessage && validMessage !== undefined">Message is not valid</p>
                 <textarea id="message" name="message" required @input="onChange"></textarea>
 
                 <input type="submit" value="Contact" :class="{ 'valid-submit': !validForm() }">
 
-                <span v-if="send">Form sent</span>
+                <section v-if="sending" id="spinner-container">
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                        <div class="rect5"></div>
+                    </div>
+                </section>
+
+                <span v-if="send">Message sent</span>
             </form>
         </article>
     </section>
@@ -168,4 +180,65 @@ export default {
         }
     }
     @media (1200px <= width) {}
+
+    /* Spinner animation */
+
+    #spinner-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .spinner {
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .spinner > div {
+        background-color: var(--white);
+        height: 100%;
+        width: 6px;
+        display: inline-block;
+        margin: 1px;
+        
+        -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .spinner .rect2 {
+        -webkit-animation-delay: -1.1s;
+        animation-delay: -1.1s;
+    }
+
+    .spinner .rect3 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+
+    .spinner .rect4 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+    }
+
+    .spinner .rect5 {
+        -webkit-animation-delay: -0.8s;
+        animation-delay: -0.8s;
+    }
+
+    @-webkit-keyframes sk-stretchdelay {
+        0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+        20% { -webkit-transform: scaleY(1.0) }
+    }
+
+    @keyframes sk-stretchdelay {
+        0%, 40%, 100% { 
+            transform: scaleY(0.4);
+            -webkit-transform: scaleY(0.4);
+        }  20% { 
+            transform: scaleY(1.0);
+            -webkit-transform: scaleY(1.0);
+        }
+    }
 </style>
