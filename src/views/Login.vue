@@ -57,6 +57,7 @@ export default {
                 if (response.status === 200) {
                     this.fail = false;
                     response.json().then(data => {
+                        auth.id = data.id
                         auth.token = data.access_token
                         auth.user = data.username
                         auth.login()
