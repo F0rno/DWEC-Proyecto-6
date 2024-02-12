@@ -11,7 +11,9 @@ export default {
 </script>
 <template lang="">
     <header class="auth__header">
-        <img src="./../assets/Booky.png" alt="">
+        <router-link to="/">
+            <img src="./../assets/Booky.png" alt="">
+        </router-link>
     </header>
     <router-view></router-view>
     <footer class="auth__footer"/>

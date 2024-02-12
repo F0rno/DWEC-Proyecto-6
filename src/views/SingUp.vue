@@ -5,8 +5,10 @@ import { sleep } from '../utils.js';
 export default {
     data() {
         return {
+            valedUsername: undefined,
             validEmail: undefined,
             validPassword: undefined,
+            username: '',
             email: '',
             password: '',
             send: false,
@@ -16,6 +18,7 @@ export default {
     methods: {
         onChange(event) {
             // REGEX for name, email, subject, message
+            const regexUsername = /^[a-zA-Z0-9]{3,20}$/
             const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
             const regexPassword = /^[a-zA-Z0-9]{3,20}$/
 
@@ -26,21 +29,26 @@ export default {
             } else if (event.target.name === 'password') {
                 this.password = event.target.value
                 this.validPassword = regexPassword.test(event.target.value)
+            } else if (event.target.name === 'username') {
+                this.username = event.target.value
+                this.validUsername = regexUsername.test(event.target.value)
             }
         },
         validForm() {
-            if (!this.validEmail || !this.validPassword) {
+            if (!this.validEmail || !this.validPassword || !this.validUsername) {
                 return false
             }
-            return this.validEmail && this.validPassword
+            return this.validEmail && this.validPassword && this.validUsername
         },
         async onSubmit() {
             if (!this.validForm()) {
                 return
             }
             this.send = true;
-            const url = `${import.meta.env.VITE_API_URL}/singup`
+            const url = `${import.meta.env.VITE_API_URL}/register`
+            console.log(url)
             const data = {
+                username: this.username,
                 email: this.email,
                 password: this.password
             }
@@ -57,10 +65,14 @@ export default {
                 if (response.status === 200) {
                     this.fail = false;
                     response.json().then(data => {
+                        auth.id = data.id
                         auth.token = data.access_token
                         auth.user = data.username
                         auth.login()
                         this.$router.push({ name: 'Home'})
+                    }).catch((error) => {
+                        console.error(error)
+                        this.fail = true;
                     })
                 } else {
                     this.fail = true;
@@ -99,7 +111,7 @@ export default {
                     </article>
                 </section>
                 <input type="submit" :class="{ 'valid-submit': !validForm() }" value="Singup">
-                <span v-if="fail">Wrong credentials</span>
+                <span v-if="fail">Credentials already in use</span>
                 <section v-if="send" id="spinner-container">
                     <div class="spinner">
                         <div class="rect1"></div>
