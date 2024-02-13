@@ -37,8 +37,10 @@ export default {
     <header class="private-header">
         <img class="private-header__logo" src="../../../assets/Booky-white.png" alt="">
         <nav class="private-header__navbar">
-            <p @click="toogleMenu" class="private-header__navbar__user">
-                {{ auth }}
+            <p class="private-header__navbar__user">
+                <a @click="toogleMenu">
+                    {{ auth }}
+                </a>
             </p>
             <ul v-if="showMenu" class="private-header__navbar__menu">
                 <li>
@@ -67,10 +69,7 @@ export default {
 </template>
 <style lang="css" scoped>
     a {
-        color: var(--light-green);
-        font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-weight: 500;
-        cursor: pointer;
+        user-select: none;
     }
 
     a:hover {
@@ -86,39 +85,51 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding-left: 4vh;
-        padding-right: 3vh;
+        padding-right: 4vh;
         height: 12vh;
         background-color: var(--darker-green);
     }
 
     .private-header__logo {
-        width: 20vh;
+        width: 15vh;
     }
 
     .private-header__navbar {
         position: relative;
-        margin-right: 5vh;
+        width: 20vh;
     }
 
     .private-header__navbar__user {
         color: var(--light-green);
         font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 300;
-        font-size: 4.5vh;
-        cursor: pointer;
         width: 100%;
+        text-align: center;
+
+        & a {
+            font-size: 3vh;
+            color: var(--light-green);
+            font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+        }
     }
 
     .private-header__navbar__menu {
         position: absolute;
-        top: 130%;
-        right: -100%;
-        width: 300%;
+        width: 100%;
         background-color: var(--darker-green);
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         border-radius: 5px;
+
+        & a {
+            color: var(--light-green);
+            font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 200;
+            cursor: pointer;
+        }
     }
     
     .private-header__navbar__menu li {
@@ -141,6 +152,15 @@ export default {
             padding-left: 8vh;
             padding-right: 8vh;
         }
+        .private-header__logo {
+            width: 20vh;
+        }
+        .private-header__navbar__user {
+            text-align: center;
+            & a {
+                font-size: 3.5vh;
+            }
+        }
         .private-header__navbar__menu li {
             padding: 1.5vh;
             font-size: 2.25vh;
@@ -150,6 +170,10 @@ export default {
         }
     }
     @media (1200px <= width) {
+        .private-header {
+            padding-left: 10vh;
+            padding-right: 10vh;
+        }
         .private-header__navbar__menu li {
             padding: 0.5vh;
             font-size: 3vh;
