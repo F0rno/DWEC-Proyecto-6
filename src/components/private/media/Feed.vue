@@ -1,5 +1,10 @@
 <script>
+import BookBox from './BookBox.vue';
+
 export default {
+    components: {
+        BookBox
+    },
     props: {
         books: {
             type: Array,
@@ -12,13 +17,11 @@ export default {
     <section class="feed">
         <h2 v-if="books.length === 0">No media found</h2>
         <ul class="feed__books">
-            <li v-for="book in books" :key="book.id">
-                <router-link :to="`home/info/${book.id}`"><img :src="book.url"></router-link>
-            </li>
+            <BookBox v-for="book in books" :key="book.id" :book="book"></BookBox>
         </ul>    
     </section>
 </template>
-<style lang="css" scoped>
+<style lang="css">
     .feed {
         width: 100%;
 
@@ -30,7 +33,6 @@ export default {
         & img {
             width: 100%;
             height: 100%;
-            overflow: hidden;
         }
     }
 
@@ -40,10 +42,18 @@ export default {
         gap: 1rem;
         justify-items: center;
 
-        & li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        padding: 0 3vh 3vh 3vh;
+    }
+
+    @media (768px <= width) {
+        .feed__books {
+            padding: 0 5vh 5vh 5vh;
+        }
+    }
+
+    @media (1200px <= width) {
+        .feed__books {
+            padding: 0 8vh 8vh 8vh;
         }
     }
 </style>
