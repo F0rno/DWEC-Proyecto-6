@@ -18,10 +18,10 @@ export default {
     <router-view></router-view>
     <footer class="auth__footer"/>
 </template>
-<style lang="css" scoped>
+<style lang="css">
     #app {
-        min-height: 100vh;
         display: grid;
+        min-height: 100vh;
         grid-template-rows: 16vh auto 2.5vh;
     }
 

@@ -12,7 +12,7 @@ const routes = [
                 component: () => import("../views/Intro.vue"),
             },
             {
-                path: "",
+                path: "/auth",
                 name: "Authentification",
                 component: () => import("../layout/LayoutAuthentification.vue"),
                 children: [
