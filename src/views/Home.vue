@@ -38,7 +38,7 @@ export default {
 </script>
 <template lang="">
     <section class="home">
-        <article>
+        <article class="home__search">
             <SearchBar :onSubmit="askAPIForBooks" />
         </article>
         <article class="home__feed-container">
@@ -51,8 +51,21 @@ export default {
         background-color: var(--light-green);
     }
     
+    .home__search {
+        display: flex;
+        justify-content: center;
+        margin: 2vh 0;
+        height: 10vh;
+    }
+
     .home__feed-container {
         display: flex;
         justify-content: center;
+    }
+
+    @media (768px <= width) {
+        .home__search {
+            margin: 3vh 0;
+        }
     }
 </style>

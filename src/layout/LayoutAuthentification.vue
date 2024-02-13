@@ -18,7 +18,7 @@ export default {
     <router-view></router-view>
     <footer class="auth__footer"/>
 </template>
-<style lang="css">
+<style lang="css" scoped>
     #app {
         display: grid;
         min-height: 100vh;
