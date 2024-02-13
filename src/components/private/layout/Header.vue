@@ -22,19 +22,35 @@ export default {
         },
         toogleDarkMode() {
             this.darkMode = !this.darkMode;
+            console.log('Dark mode ', this.darkMode);
+
+            if (this.darkMode) {
+                document.documentElement.style.setProperty('--light-green', '#ECE3CE');
+                document.documentElement.style.setProperty('--medium-green', '#739072');
+                document.documentElement.style.setProperty('--dark-green', '#4F6F52');
+                document.documentElement.style.setProperty('--darker-green', '#3A4D39');
+                document.documentElement.style.setProperty('--white', '#FFFFFF');
+                document.documentElement.style.setProperty('--black', '#000000');
+                document.documentElement.style.setProperty('--red', '#FF0000');
+                document.documentElement.style.setProperty('--yellow', '#FFD700');
+            } else {
+                // Set correct dark mode colors
+
+            }
             // TODO: Implement dark mode
             /*
-            Change this vars
+            Normal colors
                 --light-green: #ECE3CE;
                 --medium-green: #739072;
                 --dark-green: #4F6F52;
                 --darker-green: #3A4D39;
                 --white: #FFFFFF;
                 --black: #000000;
+                --red: #FF0000;
+                --yellow: #FFD700;
+            Dark mode colors
+
             */
-            // document.documentElement.style.setProperty('--light-green', '');
-            console.log('Dark mode');
-            console.log(this.darkMode);
         }
     }
 }
