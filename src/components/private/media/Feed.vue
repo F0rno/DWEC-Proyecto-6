@@ -29,11 +29,6 @@ export default {
             text-align: center;
             color: var(--red);
         }
-
-        & img {
-            width: 100%;
-            height: 100%;
-        }
     }
 
     .feed__books {
@@ -48,6 +43,7 @@ export default {
     @media (768px <= width) {
         .feed__books {
             padding: 0 5vh 5vh 5vh;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         }
     }
 

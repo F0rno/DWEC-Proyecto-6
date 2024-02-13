@@ -15,21 +15,27 @@ export default {
 </template>
 <style lang="css" scoped>
     .bookbox {
-        & li {
-            width: 20vh;
-            transform: rotate(0deg);
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
+        cursor: pointer;
 
-            &:hover {
-                transform: rotate(180deg);
-            }
-
-            & a img {
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
+        & img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
     }
+/*
+    @media (768px <= width) {
+        .bookbox img {
+            width: 200px;
+            height: 300px;
+        }
+    }
+
+    @media (1200px <= width) {
+        .bookbox {
+            height: 29vh;
+            width: 21vh;
+        }
+    }
+*/
 </style>
