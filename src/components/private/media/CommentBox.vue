@@ -1,39 +1,12 @@
 <script>
 import { auth } from '../../../store/auth';
 
-/* 
-get http://localhost/api/comments/search
-{
-  "book_id":"01EZAwAAQBAJ"
-}
-{
-  "data": [
-    {
-      "username": "hola",
-      "msg": "xd",
-      "created_at": "2024-02-14T00:00:00.000000Z"
-    }
-  ],
- 
-post http://localhost/api/comments
-{
-  "comment": {
-    "username": "hola",
-    "msg": "xd",
-    "books_book_id": "01EZAwAAQBAJ",
-    "updated_at": "2024-02-14T09:02:27.000000Z",
-    "created_at": "2024-02-14T09:02:27.000000Z",
-    "comment_id": 1
-  },
-  "message": "Comment created successfully"
-}
-*/
-
 export default {
     data() {
         return {
             comments: [],
-            commenting: undefined
+            commenting: false,
+            comment: ''
         }
     },
     methods: {
@@ -52,11 +25,21 @@ export default {
             })
             .catch(error => console.error(error));
         },
+        validComment() {
+            const regexComment = /^[a-zA-Z0-9]{3,100}$/
+            if (this.comment === '') {
+                return false
+            }
+            return regexComment.test(this.comment)
+        },
         postComment() {
+            if (!this.validComment()) {
+                return;
+            }
             const book_id = this.$route.params.id;
             const comment = {
-                username: this.commenting.username,
-                msg: this.commenting.msg,
+                username: auth.user,
+                msg: this.comment,
                 books_book_id: book_id
             };
             fetch(`${import.meta.env.VITE_API_URL}/comments`, {
@@ -71,10 +54,19 @@ export default {
             .then(data => {
                 this.comments.push(data.comment);
             })
-            .catch(error => console.error(error));
+            .catch(error => console.error(error))
+            .finally(() => {
+                this.comment = '';
+            });
         },
         formatDate(date) {
             return new Date(date).toLocaleDateString();
+        },
+        creatingCommentOn() {
+            this.commenting = true
+        },
+        creatingCommentOff() {
+            this.commenting = false
         }
     },
     created() {
@@ -84,7 +76,8 @@ export default {
 </script>
 <template lang="">
     <section class="commentbox">
-        <ul>
+        <ul 
+        v-if="!commenting || comments!==[]">
             <span v-if="comments.length === 0">No comments yet</span>
             <li v-for="comment in comments" :key="comment.id">
                 <h2>{{comment.username}}</h2>
@@ -92,6 +85,20 @@ export default {
                 <p>{{formatDate(comment.created_at)}}</p>
             </li>
         </ul>
+        <article 
+        class="commentbox__add-comment"
+        v-if="commenting">
+            <textarea v-model="comment" placeholder="Comment"></textarea>
+            <button @click="postComment">Post</button>
+        </article>
+        <button 
+        class="commentbox__add-comment-button"
+        v-if="!commenting" 
+        @click="creatingCommentOn">Add comment</button>
+        <button 
+        class="commentbox__close-add-comment-button"
+        v-if="commenting" 
+        @click="creatingCommentOff">Close comment</button>
     </section>
 </template>
 <style lang="css" scoped>
@@ -120,6 +127,28 @@ export default {
             & p:last-child {
                 text-align: right;
             }
+        }
+
+        & textarea {
+            width: 100%;
+            height: 10vh;
+            margin: 1vh 0;
+            padding: 1vh;
+            border-radius: 0.5vh;
+            font-size: 2vh;
+        }
+
+        & article button {
+            float: right;
+        }
+
+        & button {
+            margin-bottom: 8px;
+            color: var(--white);
+            background-color: var(--medium-green);
+            border: none;
+            padding: 1vh;
+            border-radius: 5px;
         }
     }
 
