@@ -10,7 +10,7 @@ export default {
 </script>
 <template lang="">
     <li class="bookbox">
-        <router-link :to="`home/info/${book.id}`"><img :src="book.url"></router-link>
+        <router-link :to="`/home/info/${book.id}`"><img :src="book.url"></router-link>
     </li>
 </template>
 <style lang="css" scoped>
