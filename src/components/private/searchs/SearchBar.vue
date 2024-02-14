@@ -92,6 +92,7 @@ export default {
         padding: 1vh;
         width: 60%;
         font-size: 1.75vh;
+        outline: none;
     }
 
     .search__filters input:focus {
