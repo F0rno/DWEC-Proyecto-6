@@ -57,7 +57,9 @@ export default {
 </script>
 <template lang="">
     <header class="private-header">
-        <img class="private-header__logo" src="../../../assets/Booky-white.png" alt="">
+        <router-link to="/home/">
+            <img class="private-header__logo" src="../../../assets/Booky-white.png" alt="">
+        </router-link>
         <nav class="private-header__navbar">
             <p class="private-header__navbar__user">
                 <a @click="toogleMenu">
