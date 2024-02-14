@@ -76,7 +76,7 @@ export default {
         <article class="info__comments">
             <div>
                 <h2>Comments</h2>
-                <p></p>
+                
             </div>
         </article>
     </section>
@@ -140,7 +140,7 @@ export default {
         .info {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
             gap: 1rem;
             padding: 3vh;
             padding-left: 5vh;
@@ -149,15 +149,26 @@ export default {
         }
 
         .info__data {
+            grid-row: 1 / 3;
+            max-height: 100%;
+            overflow-y: auto;
             padding-top: 2vh;
             padding-bottom: 2vh;
             padding-left: 0vh;
             padding-right: 0vh;
+
+            & > h2 {
+                font-size: 2.75vh;
+            }
+
+            & > p {
+                font-size: 1.75vh;
+            }
         }
 
         .info__cover {
             grid-column: 1 / 2;
-            grid-row: 1 / 3;
+            grid-row: 1 / 4;
             display: flex;
             justify-content: center;
             align-items: center;
