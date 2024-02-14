@@ -34,14 +34,14 @@ export default {
         },
         postComment() {
             if (!this.validComment()) {
-                return;
+                return
             }
-            const book_id = this.$route.params.id;
+            const book_id = this.$route.params.id
             const comment = {
                 username: auth.user,
                 msg: this.comment,
                 books_book_id: book_id
-            };
+            }
             fetch(`${import.meta.env.VITE_API_URL}/comments`, {
                 method: 'POST',
                 headers: {
@@ -52,15 +52,15 @@ export default {
             })
             .then(response => response.json())
             .then(data => {
-                this.comments.push(data.comment);
+                this.comments.push(data.comment)
             })
             .catch(error => console.error(error))
             .finally(() => {
-                this.comment = '';
-            });
+                this.comment = ''
+            })
         },
         formatDate(date) {
-            return new Date(date).toLocaleDateString();
+            return new Date(date).toLocaleDateString()
         },
         creatingCommentOn() {
             this.commenting = true
@@ -70,7 +70,7 @@ export default {
         }
     },
     created() {
-        this.getComments();
+        this.getComments()
     }
 }
 </script>

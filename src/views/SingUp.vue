@@ -46,7 +46,6 @@ export default {
             }
             this.send = true;
             const url = `${import.meta.env.VITE_API_URL}/register`
-            console.log(url)
             const data = {
                 username: this.username,
                 email: this.email,
