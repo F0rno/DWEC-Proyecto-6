@@ -1,7 +1,11 @@
 <script>
 import { auth } from '../store/auth'
+import CommentBox from '../components/private/media/CommentBox.vue'
 
 export default {
+    components: {
+        CommentBox
+    },
     data() {
         return  {
             book:  {
@@ -74,14 +78,21 @@ export default {
             <p>{{book.description}}</p>
         </article>
         <article class="info__comments">
-            <div>
-                <h2>Comments</h2>
-                
-            </div>
+            <CommentBox />
         </article>
     </section>
 </template>
 <style lang="css" scoped>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    html {
+        scrollbar-width: none; /* For Firefox */
+        -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    }
 
     .info {
         display: flex;
@@ -98,6 +109,7 @@ export default {
         & > img {
             overflow: hidden;
             width: 50vh;
+            filter: drop-shadow(2px 4px 6px var(--black));
         }
     }
 
@@ -126,6 +138,7 @@ export default {
         padding: 2vh;
         padding-left: 0vh;
         padding-right: 0vh;
+        width: 100%;
     }
 
     @media (768px <= width) {
@@ -141,11 +154,12 @@ export default {
             display: grid;
             grid-template-columns: 1fr 2fr;
             grid-template-rows: 1fr 1fr 1fr;
-            gap: 1rem;
+            gap: 3vh;
             padding: 3vh;
-            padding-left: 5vh;
-            padding-right: 5vh;
+            padding-left: 30vh;
+            padding-right: 30vh;
             max-height: 85vh;
+            background-color: var(--light-green);
         }
 
         .info__data {
@@ -175,6 +189,7 @@ export default {
 
             & > img {
                 overflow: hidden;
+                width: 50vh;
             }
         }
     }    
