@@ -171,6 +171,7 @@ export default {
         flex-direction: column;
         align-items: flex-end;
         border-radius: 5px;
+        z-index: 1;
 
         & a {
             color: var(--light-green);
