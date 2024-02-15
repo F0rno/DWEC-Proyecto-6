@@ -2,6 +2,8 @@
 import { auth } from '../stores/auth';
 import { sleep } from '../utils.js';
 
+// TODO: Check if the user is already logged in, and dont makes error after sign up
+
 export default {
     data() {
         return {

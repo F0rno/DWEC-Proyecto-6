@@ -1,4 +1,6 @@
 <script>
+// TODO: The two books are not responsive
+
 export default {
     methods: {
         login() {
