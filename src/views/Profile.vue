@@ -138,6 +138,7 @@ export default {
             padding-left: 8vh;
             padding-right: 8vh;
             width: 60vw;
+            margin-bottom: 5vh;
 
             & h2 {
                 font-size: 5.5vh;
