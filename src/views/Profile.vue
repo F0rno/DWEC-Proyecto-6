@@ -130,9 +130,19 @@ export default {
     }
 
     @media (1200px <= width) {
+        .profile__data__user {
+            margin: 5vh;
+            margin-bottom: 3vh;
+        }
         .profile__data__favorites {
-            padding-left: 10vh;
-            padding-right: 10vh;
+            padding-left: 8vh;
+            padding-right: 8vh;
+            width: 60vw;
+
+            & h2 {
+                font-size: 5.5vh;
+                margin-bottom: 2vh;
+            }
 
             & ul {
                 flex-direction: row;
