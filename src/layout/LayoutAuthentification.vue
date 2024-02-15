@@ -1,7 +1,6 @@
 <script>
 import router from '../router';
 import { auth } from '../stores/auth';
-// TODO: Add a wrapper div to the template to be able to set the scope of the styles close
 
 export default {
     setup() {
@@ -12,16 +11,18 @@ export default {
 }
 </script>
 <template lang="">
-    <header class="auth__header">
+    <div class="wrapper">
+        <header class="auth__header">
         <router-link to="/">
             <img src="./../assets/Booky.png" alt="">
         </router-link>
-    </header>
-    <router-view></router-view>
-    <footer class="auth__footer"/>
+        </header>
+        <router-view></router-view>
+        <footer class="auth__footer"/>
+    </div>
 </template>
 <style lang="css" scoped>
-    #app {
+    .wrapper {
         display: grid;
         min-height: 100vh;
         grid-template-rows: 16vh auto 2.5vh;

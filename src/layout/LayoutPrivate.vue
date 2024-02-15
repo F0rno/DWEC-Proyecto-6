@@ -3,7 +3,6 @@ import router from '../router';
 import { auth } from '../stores/auth';
 import Header from '../components/private/layout/Header.vue';
 import Footer from '../components/private/layout/Footer.vue';
-// TODO: Add a wrapper div to the template to be able to set the scope of the styles close
 
 export default {
     components: {
@@ -18,12 +17,14 @@ export default {
 }
 </script>
 <template lang="">
-    <Header />
-    <router-view></router-view>
-    <Footer />
+    <div class="wrapper">
+        <Header />
+        <router-view></router-view>
+        <Footer />
+    </div>
 </template>
-<style lang="css">
-    #app {
+<style lang="css" scoped>
+    .wrapper {
         display: grid;
         grid-template-rows: auto 1fr auto;
         min-height: 100vh;
