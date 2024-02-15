@@ -1,5 +1,7 @@
 <script>
 import BookBox from './BookBox.vue';
+// BUG: Lower resolutions makes the books disappear, maybe is the 
+// size of the parent container
 
 export default {
     components: {

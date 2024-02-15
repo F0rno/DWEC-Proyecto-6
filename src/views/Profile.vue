@@ -1,6 +1,7 @@
 <script>
 import { auth } from '../stores/auth'
 import BookBox from '../components/private/media/BookBox.vue'
+// BUG: The favorites are not being displayed
 
 export default {
     components: {
@@ -87,11 +88,12 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;   
-            
-            & li {
-                margin: 1rem;
-                
-            }
+        }
+
+        & li {
+            margin: 1rem;
+            width: 60vw;
+            height: 50vh;
         }
     }
 
@@ -109,6 +111,12 @@ export default {
             & ul {
                 flex-direction: row;
                 flex-wrap: wrap;
+            }
+
+            & li {
+                margin: 1rem;
+                width: 50vw;
+                height: 70vh;
             }
         }
 
@@ -148,10 +156,12 @@ export default {
             & ul {
                 flex-direction: row;
                 align-content: stretch;
+            }
 
-                & li {
-                    margin: 0.5rem;
-                }
+            & li {
+                margin: 0.5rem;
+                width: 20vw;
+                height: 50vh;
             }
         }
     }
