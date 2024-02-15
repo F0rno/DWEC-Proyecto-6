@@ -1,7 +1,7 @@
 <script>
 import SearchBar from '../components/private/searchs/SearchBar.vue';
 import Feed from '../components/private/media/Feed.vue';
-import { auth } from '../store/auth';
+import { auth } from '../stores/auth';
 
 export default {
     components: {

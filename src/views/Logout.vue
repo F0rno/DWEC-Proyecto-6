@@ -1,5 +1,5 @@
 <script>
-import { auth } from '../store/auth.js';
+import { auth } from '../stores/auth';
 import router from '../router';
 
 export default {

@@ -1,5 +1,5 @@
 <script>
-import { auth } from '../store/auth'
+import { auth } from '../stores/auth'
 import CommentBox from '../components/private/media/CommentBox.vue'
 
 export default {

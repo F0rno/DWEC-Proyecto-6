@@ -1,5 +1,5 @@
 <script>
-import { auth } from '../store/auth'
+import { auth } from '../stores/auth'
 import Team from '../components/private/media/Team.vue'
 
 export default {

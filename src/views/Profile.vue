@@ -1,5 +1,5 @@
 <script>
-import { auth } from '../store/auth'
+import { auth } from '../stores/auth'
 import BookBox from '../components/private/media/BookBox.vue'
 
 export default {
