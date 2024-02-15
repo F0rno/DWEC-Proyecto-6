@@ -26,7 +26,7 @@ export default {
             .catch(error => console.error(error));
         },
         validComment() {
-            const regexComment = /^[a-zA-Z0-9]{3,100}$/
+            const regexComment = /^[ a-zA-Z0-9]{3,100}$/
             if (this.comment === '') {
                 return false
             }

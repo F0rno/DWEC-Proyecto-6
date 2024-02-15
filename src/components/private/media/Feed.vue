@@ -17,7 +17,7 @@ export default {
     <section class="feed">
         <h2 v-if="books.length === 0">No media found</h2>
         <ul class="feed__books">
-            <BookBox v-for="book in books" :key="book.id" :book="book"></BookBox>
+            <BookBox id="feed__books__covers" v-for="book in books" :key="book.id" :book="book"></BookBox>
         </ul>    
     </section>
 </template>
@@ -50,6 +50,11 @@ export default {
     @media (1200px <= width) {
         .feed__books {
             padding: 0 8vh 8vh 8vh;
+        }
+        
+        #feed__books__covers {
+            height: 29vh;
+            width: 21vh;
         }
     }
 </style>
