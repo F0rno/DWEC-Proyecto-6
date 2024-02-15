@@ -1,6 +1,8 @@
 <script>
 import router from '../router';
 import { auth } from '../store/auth.js';
+// TODO: Add a wrapper div to the template to be able to set the scope of the styles close
+
 export default {
     setup() {
         if (auth.loggedin) {

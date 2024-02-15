@@ -3,6 +3,7 @@ import router from '../router';
 import { auth } from '../store/auth.js';
 import Header from '../components/private/layout/Header.vue';
 import Footer from '../components/private/layout/Footer.vue';
+// TODO: Add a wrapper div to the template to be able to set the scope of the styles close
 
 export default {
     components: {
