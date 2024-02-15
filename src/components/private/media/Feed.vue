@@ -40,6 +40,13 @@ export default {
         padding: 0 3vh 3vh 3vh;
     }
 
+    #feed__books__covers {
+        
+        & img {
+            border-radius: 5px;
+        }
+    }
+
     @media (768px <= width) {
         .feed__books {
             padding: 0 5vh 5vh 5vh;
