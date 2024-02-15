@@ -1,7 +1,6 @@
 <script>
 import { auth } from '../stores/auth'
 import BookBox from '../components/private/media/BookBox.vue'
-// BUG: The favorites are not being displayed
 
 export default {
     components: {

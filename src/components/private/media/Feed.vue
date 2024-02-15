@@ -1,7 +1,6 @@
 <script>
 import BookBox from './BookBox.vue';
-// BUG: Lower resolutions makes the books disappear, maybe is the 
-// size of the parent container
+// TODO: Fix bad responsive design
 
 export default {
     components: {
@@ -43,7 +42,9 @@ export default {
     }
 
     #feed__books__covers {
-        
+        height: 30rem;
+        width: 20rem;
+
         & img {
             border-radius: 5px;
         }
@@ -53,6 +54,20 @@ export default {
         .feed__books {
             padding: 0 5vh 5vh 5vh;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+
+        #feed__books__covers {
+            height: 25rem;
+            width: 15rem;
+            padding: 1vh;
+        }
+    }
+
+    @media (1024px <= width) {
+        #feed__books__covers {
+            height: 25rem;
+            width: 15rem;
+            padding: 1vh;
         }
     }
 
@@ -64,6 +79,7 @@ export default {
         #feed__books__covers {
             height: 29vh;
             width: 21vh;
+            padding: 0;
         }
     }
 </style>
