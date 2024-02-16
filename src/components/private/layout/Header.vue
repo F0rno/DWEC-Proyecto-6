@@ -1,5 +1,6 @@
 <script>
 import { auth } from '../../../stores/auth';
+// TODO: Save the state of the dark mode in the local storage
 
 export default {
     data() {
