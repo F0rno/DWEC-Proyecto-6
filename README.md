@@ -8,7 +8,7 @@ Para los estilos globales, que básicamente son reseteos de propiedades genéric
 
 ### Lanzarlo
 
-Lanzar antes el [backend](https://github.com/F0rno/DWES-Proyecto-6/blob/master/README.md) y luego:
+Lanzar antes el [backend](https://github.com/F0rno/DWES-Proyecto-6) y luego:
 
 ```bash
 npm run build && npm run preview
