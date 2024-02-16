@@ -65,7 +65,7 @@ export default {
     }
 
     .profile__data__favorites {
-        background-color: var(--dark-green);
+        background-color: var(--darker-green);
         padding: 2vh;
         padding-left: 4vh;
         padding-right: 4vh;
