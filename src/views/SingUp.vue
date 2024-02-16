@@ -2,12 +2,10 @@
 import { auth } from '../stores/auth';
 import { sleep } from '../utils.js';
 
-// TODO: Check if the user is already logged in, and dont makes error after sign up
-
 export default {
     data() {
         return {
-            valedUsername: undefined,
+            validUsername: undefined,
             validEmail: undefined,
             validPassword: undefined,
             username: '',
@@ -66,10 +64,12 @@ export default {
                 if (response.status === 200) {
                     this.fail = false;
                     response.json().then(data => {
+                        console.log(auth)
                         auth.id = data.id
                         auth.token = data.access_token
-                        auth.user = data.username
+                        auth.user = this.username
                         auth.login()
+                        console.log(auth)
                         this.$router.push({ name: 'Home'})
                     }).catch((error) => {
                         console.error(error)
