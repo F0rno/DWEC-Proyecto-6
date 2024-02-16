@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "vue": "3.3.11",
-    "vue-router": "^4.2.5"
+    "vue-router": "4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "4.5.2",
-    "vite": "^5.0.12"
+    "vite": "5.0.12"
   }
 }
