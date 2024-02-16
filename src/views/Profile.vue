@@ -159,8 +159,8 @@ export default {
 
             & li {
                 margin: 0.5rem;
-                width: 20vw;
-                height: 50vh;
+                width: 15vw;
+                height: 35vh;
             }
         }
     }
