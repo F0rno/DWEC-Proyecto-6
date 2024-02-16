@@ -1,6 +1,5 @@
-import { reactive } from 'vue';
-
-// Set thi folder to stores no store
+import { reactive } from 'vue'
+import router from '../router'
 
 export const auth = reactive({
     id:"",
@@ -8,12 +7,16 @@ export const auth = reactive({
     token: "",
     loggedin: false,
     login() {
-        this.loggedin = true;
+        setTimeout(() => {
+            this.logout()
+        }, 1000*3600) // 1 hour of session
+        this.loggedin = true
     },
     logout() {
-        this.loggedin = false;
-        this.id = "";
-        this.user = "";
-        this.token = "";
+        this.loggedin = false
+        this.id = ""
+        this.user = ""
+        this.token = ""
+        router.push('/login')
     }
 })

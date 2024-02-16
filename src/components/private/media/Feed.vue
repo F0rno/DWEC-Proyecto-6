@@ -1,6 +1,5 @@
 <script>
 import BookBox from './BookBox.vue';
-// TODO: Fix bad responsive design
 
 export default {
     components: {
