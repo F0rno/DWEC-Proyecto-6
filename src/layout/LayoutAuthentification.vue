@@ -14,7 +14,7 @@ export default {
     <div class="wrapper">
         <header class="auth__header">
         <router-link to="/">
-            <img src="./../assets/Booky.png" alt="">
+            <img src="./../assets/Booky.png" alt="Booky logo">
         </router-link>
         </header>
         <router-view></router-view>

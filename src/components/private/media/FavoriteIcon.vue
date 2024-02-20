@@ -20,7 +20,7 @@ export default {
         },
         addToFavorites() {
             const favorites = JSON.parse(localStorage.getItem(`favorites_${auth.user}`)) || [];
-            favorites.push({ id: this.book.id, url: this.book.url });
+            favorites.push({ id: this.book.id, title: this.book.title, url: this.book.url });
             localStorage.setItem(`favorites_${auth.user}`, JSON.stringify(favorites));
         },
         removeFromFavorites() {

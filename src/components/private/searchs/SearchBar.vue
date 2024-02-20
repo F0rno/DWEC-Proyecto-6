@@ -55,6 +55,7 @@ export default {
             type="text"
             v-model="input"
             @input="onChange"
+            aria-label="main search bar"
         >
         <article class="search__filters">
             <select name="type" v-model="type" @input="onChange">
@@ -74,7 +75,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin: 1rem 0;
-        background-color: var(--dark-green);
+        background-color: var(--darker-green);
         width: 90%;
         border-radius: 3vh;
         padding: 1vh;
@@ -86,7 +87,7 @@ export default {
     }
 
     .search__bar {
-        background-color: var(--dark-green);
+        background-color: var(--darker-green);
         color: var(--light-green);
         border: none;
         padding: 1vh;
@@ -106,7 +107,7 @@ export default {
     }
 
     .search__filters select {
-        background-color: var(--dark-green);
+        background-color: var(--darker-green);
         color: var(--light-green);
         border: none;
         padding: 1vh;

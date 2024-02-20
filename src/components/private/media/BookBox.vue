@@ -17,14 +17,14 @@ export default {
     <li class="bookbox">
         <section class="card">
             <article class="card-face card-face-front">
-                <img :src="book.url">
+                <img :src="book.url" :alt="book.title">
             </article>
             <article class="card-face card-face-back">
                 <section>
-                    <FavoriteIcon :book="{id: book.id, url: book.url}"/>
+                    <FavoriteIcon aria-label="Toggle book favorite" :book="book"/>
                 </section>
                 <section>
-                    <router-link :to="`/home/info/${book.id}`">
+                    <router-link :to="`/home/info/${book.id}`" aria-label="Book information">
                         <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16"><path fill="currentColor" d="M1.75 3a.75.75 0 0 0 0 1.5h12.5a.75.75 0 0 0 0-1.5zm0 3a.75.75 0 0 0 0 1.5h12.5a.75.75 0 0 0 0-1.5zM1 9.75A.75.75 0 0 1 1.75 9h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 9.75M1.75 12a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5z"/></svg>
                     </router-link>
                 </section>

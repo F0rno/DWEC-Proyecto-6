@@ -2,6 +2,8 @@
 import { auth } from '../stores/auth'
 import Team from '../components/private/media/Team.vue'
 
+// TODO: Make the teams wrow to under
+
 export default {
     components: {
         Team
