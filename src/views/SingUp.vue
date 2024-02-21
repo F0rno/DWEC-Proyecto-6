@@ -60,17 +60,10 @@ export default {
                 body: JSON.stringify(data)
             })
             .then(response => {
-                // If response is 200, save the token in auth.token
                 if (response.status === 200) {
                     this.fail = false;
                     response.json().then(data => {
-                        console.log(auth)
-                        auth.id = data.id
-                        auth.token = data.access_token
-                        auth.user = this.username
-                        auth.login()
-                        console.log(auth)
-                        this.$router.push({ name: 'Home'})
+                        auth.login(data.id, this.username, data.access_token)
                     }).catch((error) => {
                         console.error(error)
                         this.fail = true;

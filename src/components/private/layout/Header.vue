@@ -24,7 +24,7 @@ export default {
         toogleDarkMode() {
             this.darkMode = !this.darkMode;
             if (this.darkMode) {
-                // Set correct dark mode colorsf
+                // Set dark mode colors
                 document.documentElement.style.setProperty('--dark-green', '#181818');
                 document.documentElement.style.setProperty('--darker-green', '#000000');
             } else {

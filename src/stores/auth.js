@@ -6,17 +6,23 @@ export const auth = reactive({
     user: "",
     token: "",
     loggedin: false,
-    login() {
-        setTimeout(() => {
+    timeoutID: null,
+    login(id, user, token) {
+        this.timeoutID = setTimeout(() => {
             this.logout()
         }, 1000*3600) // 1 hour of session
+        this.id = id
+        this.user = user
+        this.token = token
         this.loggedin = true
+        router.push('/home')
     },
     logout() {
         this.loggedin = false
         this.id = ""
         this.user = ""
         this.token = ""
+        clearTimeout(this.timeoutID)
         router.push('/login')
     }
 })
