@@ -1,5 +1,6 @@
 <script>
 import { auth } from '../../../stores/auth';
+import { getLocalStorage, setLocalStorage } from '../../../utils';
 
 export default {
     props: {
@@ -15,18 +16,18 @@ export default {
     },
     methods: {
         isFavorite(id) {
-            const favorites = JSON.parse(localStorage.getItem(`favorites_${auth.user}`)) || [];
+            const favorites = getLocalStorage(`favorites_${auth.user}`)
             return favorites.some(fav => fav.id === id);
         },
         addToFavorites() {
-            const favorites = JSON.parse(localStorage.getItem(`favorites_${auth.user}`)) || [];
+            const favorites = getLocalStorage(`favorites_${auth.user}`)
             favorites.push({ id: this.book.id, title: this.book.title, url: this.book.url });
-            localStorage.setItem(`favorites_${auth.user}`, JSON.stringify(favorites));
+            setLocalStorage(`favorites_${auth.user}`, favorites)
         },
         removeFromFavorites() {
-            const favorites = JSON.parse(localStorage.getItem(`favorites_${auth.user}`)) || [];
+            const favorites = getLocalStorage(`favorites_${auth.user}`)
             const newFavorites = favorites.filter(fav => fav.id !== this.book.id);
-            localStorage.setItem(`favorites_${auth.user}`, JSON.stringify(newFavorites));
+            setLocalStorage(`favorites_${auth.user}`, newFavorites)
         },
         toggleFavorite() {
             if (this.isFav) {

@@ -1,6 +1,7 @@
 <script>
 import { auth } from '../stores/auth'
 import BookBox from '../components/private/media/BookBox.vue'
+import { getLocalStorage } from '../utils'
 
 export default {
     components: {
@@ -11,8 +12,8 @@ export default {
             return auth.user
         },
         getFavorites() {
-            // get favorites from local storage
-            const favorites = JSON.parse(localStorage.getItem(`favorites_${auth.user}`)) || []
+            
+            const favorites = getLocalStorage(`favorites_${auth.user}`)
             return favorites
         }
     }
