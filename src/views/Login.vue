@@ -31,11 +31,23 @@ export default {
         validForm() {
             return this.validEmail && this.validPassword
         },
+        showSpinner() {
+            this.send = true
+        },
+        hiddeSpinner() {
+            this.send = false
+        },
+        showErrorMessage() {
+            this.fail = true
+        },
+        hiddeErrorMessage() {
+            this.fail = false
+        },
         async onSubmit() {
             if (!this.validForm()) {
                 return
             }
-            this.send = true;
+            this.showSpinner()
             const url = `${import.meta.env.VITE_API_URL}/login`
             const data = {
                 email: this.email,
@@ -51,17 +63,17 @@ export default {
             })
             .then(response => {
                 if (response.status === 200) {
-                    this.fail = false;
+                    this.hiddeErrorMessage()
                     response.json().then(data => {
                         auth.login(data.id, data.username, data.access_token)
                     })
                 } else {
-                    this.fail = true;
+                    this.showErrorMessage()
                 }
             })
             .catch(error => console.error(error))
             .finally(() => {
-                this.send = false;
+                this.hiddeSpinner()
             })
         }
     }
