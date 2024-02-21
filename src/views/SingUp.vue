@@ -37,11 +37,23 @@ export default {
         validForm() {
             return this.validEmail && this.validPassword && this.validUsername
         },
+        showSpinner() {
+            this.send = true
+        },
+        hiddeSpinner() {
+            this.send = false
+        },
+        showErrorMessage() {
+            this.fail = true
+        },
+        hiddeErrorMessage() {
+            this.fail = false
+        },
         async onSubmit() {
             if (!this.validForm()) {
                 return
             }
-            this.send = true;
+            this.showSpinner()
             const url = `${import.meta.env.VITE_API_URL}/register`
             const data = {
                 username: this.username,
@@ -58,20 +70,20 @@ export default {
             })
             .then(response => {
                 if (response.status === 200) {
-                    this.fail = false;
+                    this.hiddeErrorMessage()
                     response.json().then(data => {
                         auth.login(data.id, this.username, data.access_token)
                     }).catch((error) => {
                         console.error(error)
-                        this.fail = true;
+                        this.showErrorMessage()
                     })
                 } else {
-                    this.fail = true;
+                    this.showErrorMessage()
                 }
             })
             .catch(error => console.error(error))
             .finally(() => {
-                this.send = false;
+                this.hiddeSpinner()
             })
         }
     }
