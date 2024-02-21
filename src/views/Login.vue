@@ -29,9 +29,6 @@ export default {
             }
         },
         validForm() {
-            if (!this.validEmail || !this.validPassword) {
-                return false
-            }
             return this.validEmail && this.validPassword
         },
         async onSubmit() {
