@@ -60,7 +60,14 @@ export default {
         </router-link>
         <nav class="private-header__navbar">
             <ul class="private-header__navbar__user">
-                <a @click="toogleMenu" tabindex="0" aria-label="Toggle menu">
+                <a 
+                @click="toogleMenu" 
+                @keyup.enter="toogleMenu" 
+                @keyup.space="toogleMenu" 
+                tabindex="0" 
+                aria-label="Toggle navigation menu"
+                role="button"
+                >
                     {{ auth }}
                 </a>
             </ul>
