@@ -1,12 +1,12 @@
 <script>
-import { auth } from '../../../stores/auth';
-// TODO: Save the state of the dark mode in the local storage
+import { auth } from '../../../stores/auth'
+import { getLocalStorage, setLocalStorage} from '../../../utils'
 
 export default {
     data() {
         return {
             showMenu: false,
-            darkMode: false
+            darkMode: this.getDarkModeFromLocalStorage()
         }
     },
     computed: {
@@ -18,11 +18,21 @@ export default {
         }
     },
     methods: {
+        getDarkModeFromLocalStorage() {
+            // Defaul getLocalStorage value is []
+            const darkMode = getLocalStorage(`darkMode_${auth.user}`)
+            if (darkMode instanceof Array) {
+                return false;
+            }
+            return darkMode;
+        },
+        setDarkModeToLocalStorage() {
+            setLocalStorage(`darkMode_${auth.user}`, this.darkMode);
+        },
         toogleMenu() {
             this.showMenu = !this.showMenu;
         },
-        toogleDarkMode() {
-            this.darkMode = !this.darkMode;
+        setDarkMode() {
             if (this.darkMode) {
                 // Set dark mode colors
                 document.documentElement.style.setProperty('--dark-green', '#181818');
@@ -31,7 +41,15 @@ export default {
                 document.documentElement.style.setProperty('--dark-green', '#4F6F52');
                 document.documentElement.style.setProperty('--darker-green', '#3A4D39');
             }
+        },
+        toogleDarkMode() {
+            this.darkMode = !this.darkMode;
+            this.setDarkMode()
+            this.setDarkModeToLocalStorage()
         }
+    },
+    created() {
+        this.setDarkMode()
     }
 }
 </script>
