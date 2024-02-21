@@ -149,9 +149,22 @@ export default {
 
     @media (1200px <= width) {
         .team {
+            justify-content: space-between;
             width: 33vh;
-            max-height: 100%;
-            min-height: 100%;
+            height: 85%;
+            margin: 0;
+            margin-left: 2vh;
+            margin-right: 2vh;
+
+            & ul {
+                overflow-y: scroll;
+                height: 75%;
+                scrollbar-width: none;
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
         }
     }
 </style>
