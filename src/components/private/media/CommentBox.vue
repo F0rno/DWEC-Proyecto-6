@@ -114,11 +114,11 @@ export default {
         }
 
         & ul {
-            width: 100vw;
+            width: 100%;
         }
 
         textarea {
-            width: 100vw;
+            width: 100%;
         }
 
         & li {

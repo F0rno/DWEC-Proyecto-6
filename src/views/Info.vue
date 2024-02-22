@@ -99,6 +99,7 @@ export default {
         flex-direction: column;
         align-items: center;
         padding: 2vh;
+        background-color: var(--light-green);
     }
 
     .info__cover {
