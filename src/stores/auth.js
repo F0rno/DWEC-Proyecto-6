@@ -28,16 +28,41 @@ export const auth = reactive({
         deleteLocalStorage('last_auth')
         router.push('/login')
     },
-    checkLoginStatus() {
+    async checkIfValidToken(token) {
+        // fetch the api to check if the token stills valid
+        const url = `${import.meta.env.VITE_API_URL}/books`
+        return fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            if (response.status === 200) {
+                return true
+            } else {
+                return false
+            }
+        })
+        .catch(err => {
+            console.error('Error:', err)
+            return false
+        })
+    }
+    ,
+    async checkLoginStatus() {
         const localStorageAuth = getLocalStorage('last_auth')
-        if (Object.keys(localStorageAuth).length > 0) {
-            this.id = localStorageAuth.id
-            this.user = localStorageAuth.user
-            this.token = localStorageAuth.token
-            this.loggedin = true
-            router.push('/home')
+        if (Object.keys(localStorageAuth).length === 0) {
+            return
         }
+        const isTokenValid = await this.checkIfValidToken(localStorageAuth.token)
+        if (!isTokenValid) {
+            this.logout()
+            return
+        }
+        this.login(localStorageAuth.id, localStorageAuth.user, localStorageAuth.token)
     }
 })
 
-auth.checkLoginStatus()
+await auth.checkLoginStatus()

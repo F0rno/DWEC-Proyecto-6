@@ -19,6 +19,7 @@ export default {
             const type = search ? search.type : 'B';
             const sort = search ? search.sort : 'N';
             const url = `${import.meta.env.VITE_API_URL}/books/search?title=${title}&type=${type}&sort=${sort}`;
+            console.log(auth.token);
             fetch(url, {
                 headers: {
                     'Authorization': `Bearer ${auth.token}`
