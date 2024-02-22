@@ -26,7 +26,7 @@ export default {
             .catch(error => console.error(error));
         },
         validComment() {
-            const regexComment = /^[ a-zA-Z0-9]{3,100}$/
+            const regexComment = /^[ a-zA-Z0-9]{3,255}$/
             if (this.comment === '') {
                 return false
             }
@@ -113,12 +113,23 @@ export default {
             font-size: 2.75vh;
         }
 
+        & ul {
+            width: 100vw;
+        }
+
+        textarea {
+            width: 100vw;
+        }
+
         & li {
             background-color: var(--medium-green);
             padding: 1vh;
             margin: 1vh 0;
             border-radius: 0.5vh;
             font-size: 2vh;
+            word-wrap: break-word;
+            overflow-wrap: break-word; /* Add this line */
+            width: 100%;
 
             & p {
                 font-weight: 300;
@@ -157,6 +168,26 @@ export default {
             padding: 2vh;
             padding-left: 5vh;
             padding-right: 5vh;
+
+            & ul {
+                width: 85vw;
+            }
+
+            textarea {
+                width: 85vw;
+            }
+        }
+    }
+
+    @media (1024px <= width) {
+        .commentbox {
+            & ul {
+                width: 88vw;
+            }
+
+            textarea {
+                width: 88vw;
+            }
         }
     }
 
@@ -164,6 +195,14 @@ export default {
         .commentbox {
             height: 30vh;
             overflow-y: auto;
+
+            & ul {
+                width: 36.5vw;
+            }
+
+            textarea {
+                width: 36.5vw;
+            }
         }
     }
 </style>
