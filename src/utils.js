@@ -13,3 +13,19 @@ export function setLocalStorage(key, value) {
 export function deleteLocalStorage(key) {
     localStorage.removeItem(key)
 }
+
+export function xorEncrypt(input, key) {
+    let output = '';
+    for (let i = 0; i < input.length; i++) {
+        output += String.fromCharCode(input.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return output;
+}
+
+export function xorDecrypt(encrypted, key) {
+    let output = '';
+    for (let i = 0; i < encrypted.length; i++) {
+        output += String.fromCharCode(encrypted.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return output;
+}

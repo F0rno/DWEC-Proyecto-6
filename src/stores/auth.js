@@ -1,12 +1,15 @@
 import { reactive } from 'vue'
 import router from '../router'
-import { getLocalStorage, setLocalStorage, deleteLocalStorage } from '../utils'
+import { getLocalStorage, setLocalStorage, deleteLocalStorage, xorEncrypt, xorDecrypt } from '../utils'
+
+// TODO: encrypt the token in the local storage
 
 export const auth = reactive({
     id:"",
     user: "",
     token: "",
     loggedin: false,
+    tokenKey: `${import.meta.env.VITE_TOKEN_KEY}`,
     timeoutID: null,
     login(id, user, token) {
         this.timeoutID = setTimeout(() => {
@@ -16,7 +19,8 @@ export const auth = reactive({
         this.user = user
         this.token = token
         this.loggedin = true
-        setLocalStorage('last_auth', { id, user, token })
+        const encryptedToken = xorEncrypt(this.token, this.tokenKey)
+        setLocalStorage('last_auth', { id, user, encryptedToken })
         router.push('/home')
     },
     logout() {
@@ -56,12 +60,13 @@ export const auth = reactive({
         if (Object.keys(localStorageAuth).length === 0) {
             return
         }
-        const isTokenValid = await this.checkIfValidToken(localStorageAuth.token)
+        const token = xorDecrypt(localStorageAuth.encryptedToken, this.tokenKey)
+        const isTokenValid = await this.checkIfValidToken(token)
         if (!isTokenValid) {
             this.logout()
             return
         }
-        this.login(localStorageAuth.id, localStorageAuth.user, localStorageAuth.token)
+        this.login(localStorageAuth.id, localStorageAuth.user, token)
     }
 })
 
