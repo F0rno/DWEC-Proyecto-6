@@ -89,24 +89,26 @@ export default {
                         <svg 
                         v-if="!darkMode" 
                         @click='toogleDarkMode'
-                        xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" tabindex="0" aria-label="Toggle dark mode">
+                        xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
                             <path d="M12.058 20q-3.334 0-5.667-2.333Q4.058 15.333 4.058 12q0-3.038 1.98-5.27Q8.02 4.5 10.942 4.097q.081 0 .159.006t.153.017q-.506.706-.801 1.57q-.295.865-.295 1.811q0 2.667 1.866 4.533q1.867 1.867 4.534 1.867q.952 0 1.813-.295q.862-.295 1.548-.801q.012.075.018.153q.005.078.005.158q-.384 2.923-2.615 4.904T12.057 20m0-1q2.2 0 3.95-1.213t2.55-3.162q-.5.125-1 .2t-1 .075q-3.074 0-5.237-2.162T9.158 7.5q0-.5.075-1t.2-1q-1.95.8-3.163 2.55T5.058 12q0 2.9 2.05 4.95t4.95 2.05m-.25-6.75"/>
                         </svg>
                         <svg 
                         v-if="darkMode"
                         @click='toogleDarkMode'
-                        xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" tabindex="0" aria-label="Toggle light mode">
+                        xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
                             <g style="stroke: var(--light-green);" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/>
                                 <path d="M12 3v1m0 16v1m-9-9h1m16 0h1m-2.636-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707"/>
                             </g>
                         </svg>
                         <p 
                         @click='toogleDarkMode'
+                        tabindex="0"
                         v-if="!darkMode">
                             Dark
                         </p>
                         <p 
                         @click='toogleDarkMode'
+                        tabindex="0"
                         v-if="darkMode">
                             Light
                         </p>
