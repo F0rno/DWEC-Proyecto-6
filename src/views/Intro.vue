@@ -205,18 +205,22 @@ export default {
             margin-top: 50px;
             display: flex;
             justify-content: center;
+
             & > picture {
                 position: relative;
+                width: 40vh;
+
                 & > img {
                     max-width: 450px;
                     position: absolute;
                     top: 0;
                     left: -10;
                 }
+
                 & picture {
                     position: absolute;
                     top: 50px;
-                    left: -92px;
+                    left: 81px;
                     & img {
                         max-width: 450px;
                     }
