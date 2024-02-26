@@ -10,6 +10,13 @@ Para los estilos globales, que básicamente son reseteos de propiedades genéric
 
 Lanzar antes el [backend](https://github.com/F0rno/DWES-Proyecto-6) y luego:
 
+Crear el .env
+
+```env
+VITE_API_URL=http://localhost/api
+VITE_TOKEN_KEY=Primado negativo
+```
+
 ```bash
 npm run build && npm run preview
 ```
