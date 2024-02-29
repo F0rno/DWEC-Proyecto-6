@@ -55,19 +55,21 @@ export const auth = reactive({
         })
     }
     ,
-    async checkLoginStatus() {
+    checkLoginStatus() {
         const localStorageAuth = getLocalStorage('last_auth')
         if (Object.keys(localStorageAuth).length === 0) {
             return
         }
         const token = xorDecrypt(localStorageAuth.encryptedToken, this.tokenKey)
-        const isTokenValid = await this.checkIfValidToken(token)
-        if (!isTokenValid) {
-            this.logout()
-            return
-        }
-        this.login(localStorageAuth.id, localStorageAuth.user, token)
+        this.checkIfValidToken(token)
+        .then(isTokenValid => {
+            if (!isTokenValid) {
+                this.logout()
+                return
+            }
+            this.login(localStorageAuth.id, localStorageAuth.user, token)  
+        })
     }
 })
 
-await auth.checkLoginStatus()
+auth.checkLoginStatus();
