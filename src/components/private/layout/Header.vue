@@ -12,7 +12,7 @@ export default {
         }
     },
     computed: {
-        auth() {
+        userName() {
             return auth.user;
         },
         getDarkMode() {
@@ -74,7 +74,7 @@ export default {
                 aria-label="Toggle navigation menu"
                 role="button"
                 >
-                    {{ auth }}
+                    {{ userName }}
                 </a>
             </ul>
             <nav v-if="showMenu">
@@ -173,6 +173,7 @@ export default {
         font-weight: 300;
         width: 100%;
         text-align: center;
+        text-decoration: underline;
 
         & svg {
             width: 4vh;
