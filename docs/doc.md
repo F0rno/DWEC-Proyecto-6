@@ -92,3 +92,86 @@ Para los estilos globales, que básicamente son reseteos de propiedades genéric
 #### Prototipado
 
 La herramienta principal para crear la interfaz ha sido Figma.
+
+#### Mockups
+
+![](./mockups/1.png)
+
+![](./mockups/2.png)
+
+![](./mockups/3.png)
+
+![](./mockups/4.png)
+
+![](./mockups/5.png)
+
+![](./mockups/6.png)
+
+![](./mockups/7.png)
+
+![](./mockups/8.png)
+
+![](./mockups/9.png)
+
+### Desarrollo
+
+1. **Definición de Requisitos y Diseño Inicial:**
+
+* Se establecieron las funcionalidades principales y se diseñó la interfaz de usuario inicialmente mediante wireframes.
+
+2. **Elección de Tecnologías y Configuración del Entorno:**
+
+* Se seleccionaron las tecnologías más adecuadas para el desarrollo, como Vue.js para el frontend y Laravel para el backend. Se configuraron los entornos de desarrollo local y se establecieron las bases de datos.
+
+3. **Desarrollo del Frontend:**
+
+* Se crearon los componentes necesarios en Vue.js para implementar las funcionalidades de búsqueda, filtrado, registro, inicio de sesión, favoritos, etc. Con sus validación local propia.
+
+4. **Desarrollo del Backend:**
+
+* Se implemento la API y las funciones del servidor utilizando Laravel para manejar las operaciones CRUD de la base de datos.
+* Se estableció la lógica de autenticación y autorización para los usuarios registrados.
+
+5. **Integración Frontend y Backend:**
+
+* Se realizó la integración entre el frontend y el backend para asegurar la comunicación adecuada entre ambos sistemas.
+
+6. **Pruebas y Depuración:**
+
+* Se probo la aplicación para detectar y corregir errores tanto en el frontend como en el backend.
+
+7. **Despliegue:**
+
+* Se desplegó la aplicación en entornos de desarrollo y producción utilizando Docker Compose.
+
+### Dificultades Encontradas y Decisiones Afrontadas:
+
+* **Complejidad de las Funcionalidades Avanzadas:** Implementar funcionalidades como los comentarios de los usuarios y los grupos de lectura presentó desafíos adicionales debido a que no eran lo más habitual.
+* **Gestión de Estado y Reactividad:** Manejar el estado global sin librerias fue muy interesante, pero añadio pasos extra al desarrollo.
+* **Seguridad y Autenticación:** Garantizar la seguridad de la aplicación, hay que tener muchas cosas en cuenta a la hora de que no te pillen por x o por y. Haciendolo un apartado muy exigente.
+
+### Despliegue: Tecnología y Proceso
+
+Para desplegar la aplicación, se optó por utilizar Docker Compose, una herramienta que permite definir y ejecutar aplicaciones Docker de manera multi-contenedor. A continuación se detalla el proceso de despliegue:
+
+#### Tecnología de Despliegue:
+
+* **Docker Compose:** Se utilizó Docker Compose para orquestar la infraestructura necesaria para ejecutar la aplicación. Con Docker Compose, se definieron los servicios necesarios, como el servidor web, la base de datos, etc., en un archivo YAML.
+
+#### Proceso de Despliegue:
+
+1. **Preparación del Entorno de Despliegue:**
+   * Se aseguró de tener instalado Docker y Docker Compose en el servidor de despliegue.
+   * Se configuraron las variables de entorno necesarias, como las credenciales de la base de datos y otras configuraciones específicas de la aplicación.
+2. **Creación de Archivo Docker Compose:**
+   * Se creó un archivo `docker-compose.yml` en el directorio raíz del proyecto. En este archivo, se definieron los servicios necesarios para la aplicación, como el contenedor de la aplicación web, el servidor de base de datos, etc.
+3. **Construcción de Imágenes Docker:**
+   * Se construyeron las imágenes Docker para la aplicación web y cualquier otro servicio definido en el archivo Docker Compose. Esto se hizo ejecutando el comando `docker-compose build`.
+4. **Ejecución de Contenedores:**
+   * Se ejecutaron los contenedores definidos en el archivo Docker Compose utilizando el comando `docker-compose up -d`. El parámetro `-d` se utiliza para ejecutar los contenedores en segundo plano.
+5. **Verificación del Despliegue:**
+   * Se verificó que la aplicación estuviera funcionando correctamente accediendo a la URL de la aplicación a través de un navegador web.
+6. **Monitorización y Mantenimiento:**
+   * Se establecieron procedimientos de monitorización para supervisar el rendimiento y la disponibilidad de la aplicación desplegada. Además, se programaron tareas de mantenimiento regular, como actualizaciones de seguridad y optimizaciones de rendimiento.
+7. **Gestión de Actualizaciones:**
+   * Para futuras actualizaciones de la aplicación, se implementó un proceso de despliegue continuo utilizando herramientas como Git para gestionar el control de versiones y Docker para gestionar la construcción y ejecución de las imágenes de contenedor actualizadas.
