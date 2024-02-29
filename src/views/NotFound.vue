@@ -20,7 +20,7 @@ export default {
             <h2>
             ERROR
             </h2>
-            <span>
+            <span class="pulse">
                 404
             </span>
             <h2>
@@ -29,6 +29,7 @@ export default {
         </article>
     </section>
 </template>
+
 <style lang="css" scoped>
     .error-container {
         display: flex;
@@ -55,6 +56,20 @@ export default {
             font-family: 'Roboto Mono', sans-serif;
             font-size: 13rem;
             font-weight: bold;
+        }
+    }
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
         }
     }
 </style>
