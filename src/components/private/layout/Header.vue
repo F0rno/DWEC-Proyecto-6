@@ -39,9 +39,13 @@ export default {
                 // Set dark mode colors
                 document.documentElement.style.setProperty('--dark-green', '#181818');
                 document.documentElement.style.setProperty('--darker-green', '#000000');
+                document.documentElement.style.setProperty('--medium-green', '#2E2E2E');
+                document.documentElement.style.setProperty('--light-green', '#CBC2AF');
             } else {
                 document.documentElement.style.setProperty('--dark-green', '#4F6F52');
                 document.documentElement.style.setProperty('--darker-green', '#3A4D39');
+                document.documentElement.style.setProperty('--medium-green', '#739072');
+                document.documentElement.style.setProperty('--light-green', '#ECE3CE');
             }
         },
         toogleDarkMode() {
