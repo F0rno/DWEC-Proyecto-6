@@ -18,7 +18,7 @@ VITE_TOKEN_KEY=Primado negativo
 ```
 
 ```bash
-npm run build && npm run preview
+npm install && npm run build && npm run preview
 ```
 
 ### [Video](https://drive.google.com/file/d/1moYxvGH5LyO93XUzu_1FvbIgWmxfLjDV/view?usp=drive_link)
