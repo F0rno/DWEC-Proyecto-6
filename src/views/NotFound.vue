@@ -58,9 +58,11 @@ export default {
             font-weight: bold;
         }
     }
+
     .pulse {
         animation: pulse 2s infinite;
     }
+    
     @keyframes pulse {
         0% {
             transform: scale(1);
