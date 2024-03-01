@@ -44,6 +44,8 @@ export default {
         }
     }
 
+    /* Rotate the card */
+    
     .card {
         position: relative;
         width: 100%;

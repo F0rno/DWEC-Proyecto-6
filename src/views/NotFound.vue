@@ -59,6 +59,8 @@ export default {
         }
     }
 
+    /* Animation for pulse 404 */
+
     .pulse {
         animation: pulse 2s infinite;
     }

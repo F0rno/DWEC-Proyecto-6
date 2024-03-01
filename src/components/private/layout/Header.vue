@@ -181,6 +181,7 @@ export default {
             cursor: pointer;
         }
 
+        /* a contains the user name */
         & a {
             font-size: 2.5vh;
             color: var(--light-green);

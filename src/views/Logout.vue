@@ -13,5 +13,4 @@ export default {
 <template lang="">
 </template>
 <style lang="">
-    
 </style>
