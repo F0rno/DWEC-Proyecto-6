@@ -92,7 +92,7 @@ export default {
 <template lang="">
     <section class="singup-container">
         <article class="singup">
-            <h2>Singup</h2>
+            <h1>Singup</h1>
             <form @submit.prevent="onSubmit">
                 <label for="username">Username</label>
                 <p v-if="!validUsername && validUsername !== undefined">Username is not valid</p>
@@ -140,7 +140,7 @@ export default {
         width: 40vh;
         color: var(--white);
         background-color: var(--dark-green);
-        & h2 {
+        & h1 {
             text-align: center;
             font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: 5vh;
