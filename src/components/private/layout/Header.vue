@@ -173,7 +173,6 @@ export default {
         font-weight: 300;
         width: 100%;
         text-align: center;
-        text-decoration: underline;
 
         & svg {
             width: 4vh;
@@ -188,6 +187,11 @@ export default {
             font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 500;
             cursor: pointer;
+        }
+
+        & a::before {
+            content: '☰';
+            margin-right: 8px;  
         }
     }
 
