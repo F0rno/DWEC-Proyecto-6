@@ -19,7 +19,7 @@ Ya puedes lanzar el `docker-compose.yml`
 
 ## [Figma](https://www.figma.com/file/tJoWKNAPJVyoGHG60eB6kB/Proyecto-6?type=design&node-id=4%3A2&mode=design&t=hDb3nXUaGTQIkYum-1)
 
-## [Informede accesibilidad](./docs/doc.md#informe-de-accesibilidad)
+## [Informe de accesibilidad](./docs/doc.md#informe-de-accesibilidad)
 
 ### [Guía de estilos y prototipado](./docs/doc.md#guía-de-estilos-y-prototipado)
 

@@ -73,9 +73,7 @@ VITE_API_URL=http://localhost/api
 VITE_TOKEN_KEY=Primado negativo
 ```
 
-```bash
-npm install && npm run build && npm run preview
-```
+Ya puedes lanzar el `docker-compose.yml`
 
 ### Guía de estilos y prototipado
 
