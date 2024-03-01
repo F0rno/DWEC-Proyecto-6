@@ -13,7 +13,7 @@ VITE_API_URL=http://localhost/api
 VITE_TOKEN_KEY=Primado negativo
 ```
 
-Ya puedes lanzar el `docker-compose.yml`
+Ya puedes lanzar el `docker-compose.yml`, [http://localhost:4321/](http://localhost:4321/)
 
 ## [V]()
 
