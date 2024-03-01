@@ -19,40 +19,36 @@ export default {
     },
     methods: {
         askAPIForBookInfo() {
-            const bookData = {
-                cover: '',
-                title: '',
-                author: '',
-                publisher: '',
-                description: '',
-            }
             const id = this.$route.params.id
             let url = `${import.meta.env.VITE_API_URL}/books/${id}`
             // Get cover and title
             fetch(url, {
+                method: 'GET',
                 headers: {
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${auth.token}`
                 }
             })
             .then(response => response.json())
             .then(data => {
-                bookData.cover = data.data.url
-                bookData.title = data.data.title || 'Unknown'
+                this.book.cover = data.data.url
+                this.book.title = data.data.title || 'Unknown'
             })
             .catch(error => console.error(error))
             // Get full description
             url = `${import.meta.env.VITE_API_URL}/descriptions/${id}`
             fetch(url, {
+                method: 'GET',
                 headers: {
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${auth.token}`
                 }
             })
             .then(response => response.json())
             .then(data => {
-                bookData.author = data.data.author || 'Unknown'
-                bookData.publisher = data.data.published || 'Unknown'
-                bookData.description = data.data.description || 'No description available'
-                this.book = {...bookData}
+                this.book.author = data.data.author || 'Unknown'
+                this.book.publisher = data.data.published || 'Unknown'
+                this.book.description = data.data.description || 'No description available'
             })
             .catch(error => console.error(error))
         }
@@ -65,7 +61,7 @@ export default {
 <template lang="">
     <section class="info">
         <article class="info__cover">
-            <img :src="book.cover" alt="{{book.title}}">
+            <img :src="book.cover" :alt="book.title">
         </article>
         <article class="info__data">
             <h2>Title</h2>
