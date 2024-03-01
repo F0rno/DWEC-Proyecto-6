@@ -17,11 +17,11 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="wrapper">
+    <main class="wrapper">
         <Header />
         <router-view></router-view>
         <Footer />
-    </div>
+    </main>
 </template>
 <style lang="css" scoped>
     .wrapper {

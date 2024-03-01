@@ -11,7 +11,7 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="wrapper">
+    <main class="wrapper">
         <header class="auth__header">
         <router-link to="/">
             <img src="./../assets/Booky.png" alt="Booky logo">
@@ -19,7 +19,7 @@ export default {
         </header>
         <router-view></router-view>
         <footer class="auth__footer"/>
-    </div>
+    </main>
 </template>
 <style lang="css" scoped>
     .wrapper {
