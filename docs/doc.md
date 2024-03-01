@@ -137,6 +137,18 @@ Contacto, donde puedes contactar con Booky.![img](./mockups/8.png)
 
 Página de error no encontrado.![img](./mockups/9.png)
 
+#### Informe de accesibilidad
+
+Desplegué una versión sin backend de la aplicación para realizar el test online.
+
+![](./dwi/1.png)
+
+![](./dwi/2.png)
+
+Y luego le pase el test de la extensión.
+
+![](./dwi/3.png)
+
 ### Desarrollo
 
 1. **Definición de Requisitos y Diseño Inicial:**
