@@ -1,4 +1,4 @@
-# Booky proyecto 6
+# Booky frontend
 
 [Documentación del proyecto](./docs/doc.md)
 
